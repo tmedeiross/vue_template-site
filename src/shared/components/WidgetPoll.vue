@@ -1,0 +1,57 @@
+<template>
+  <aside class="widget card widget--sidebar widget-poll">
+    <div class="widget__title card__header">
+      <h4>Alchemists Poll</h4>
+    </div>
+    <div class="widget__content card__content">
+      <form class="poll-form" action="#">
+        <div class="poll-form__question">
+          Who do you think that should win the Best Player of the Year Award 2016?
+        </div>
+        <div class="poll-form__options" v-for="player in players">
+  
+          <div class="form-group">
+            <div class="radio-wrapper">
+              <label class="radio radio-inline">
+                <input type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1"> {{ player.name }}
+                <span class="radio-indicator"></span>
+              </label>
+              <div class="radio-progress-value">{{ player.progress }}</div>
+            </div>
+            <div class="progress">
+              <div class="progress__bar progress__bar-width-60" role="progressbar" aria-valuenow="62" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+          </div>
+  
+        </div>
+        <footer class="poll-form__cta">
+          <button type="submit" class="btn btn-default btn-sm">Vote Now</button>
+        </footer>
+      </form>
+    </div>
+  </aside>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      player: [],
+    }
+  },  
+  name: 'widget-poll',
+    props: {
+    name: {
+      type: String,
+      required: true
+    },
+    progress: {
+      type: String,
+      required: true
+    }
+  }    
+}
+</script>
+
+<style scoped>
+</style>
